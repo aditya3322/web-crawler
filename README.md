@@ -19,7 +19,7 @@ Web crawler utility provide an async web crawling over a given URL. There are be
 
 * command : java -jar webcrawler-utility url domian depth
 * Reponse : JSON response 
-'''
+```
 {
   "domain":"domain":"prudential.co.uk",
   "urls":
@@ -29,6 +29,6 @@ Web crawler utility provide an async web crawling over a given URL. There are be
             "https://www.prudential.co.uk/insights/spending-habits-in-uk-retirement"
           ]
 }
-'''
+```
 
       
