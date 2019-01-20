@@ -1,4 +1,4 @@
-package com.prudential.assignment.constants;
+package com.web.crawler.constants;
 public enum Status {
 		IDLE, CRAWLING, COMPLETED
 }

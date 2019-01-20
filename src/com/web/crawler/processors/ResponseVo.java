@@ -1,4 +1,4 @@
-package com.prudential.assignment.processors;
+package com.web.crawler.processors;
 
 import java.util.List;
 

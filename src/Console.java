@@ -1,4 +1,4 @@
-import com.prudential.assignment.crawlers.AyncWebCrawler;
+import com.web.crawlers.AyncWebCrawler;
 
 
 public class Console {
@@ -15,10 +15,8 @@ public class Console {
  		//start crawling 
 		AyncWebCrawler crawler = AyncWebCrawler.instance(domain);
 		crawler.crawl(url, depth);
+		// Reponse in json form
 		System.out.println(crawler.respone());
-		
-		
-		
 	}
 
 }

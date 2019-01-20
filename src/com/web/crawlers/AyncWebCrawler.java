@@ -1,4 +1,4 @@
-package com.prudential.assignment.crawlers;
+package com.web.crawlers;
 
 
 import static java.util.concurrent.CompletableFuture.completedFuture;
@@ -8,9 +8,7 @@ import static java.util.stream.Collectors.toSet;
 import static org.jsoup.Jsoup.connect;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -20,13 +18,11 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.google.gson.*;
-
 import org.jsoup.nodes.Document;
 
-import com.google.gson.Gson;
-import com.prudential.assignment.constants.Status;
-import com.prudential.assignment.processors.ResponseVo;
+import com.google.gson.GsonBuilder;
+import com.web.crawler.constants.Status;
+import com.web.crawler.processors.ResponseVo;
 public class AyncWebCrawler {
 	private final ConcurrentLinkedQueue<String> visited = new ConcurrentLinkedQueue<>();
 	private static Status status = Status.IDLE;
