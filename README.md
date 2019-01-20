@@ -10,7 +10,7 @@
 
 ## Overview 
 
-Web crawler utility provide an async web crawling over a given URL. There are below input parameter required:
+Web crawler commandline utility provide an async web crawling over a given URL. There are below input parameter required:
 * URL : URL on which web crawling going to done
 * domain : As page can have multiple other source urls so just serach to the given domain
 * depth : number of recursion with url
@@ -33,7 +33,7 @@ Web crawler utility provide an async web crawling over a given URL. There are be
 
 ## Code Walkthrough
 
-  * AsynWebCrawler is the singleton class reponsile to crawl 
+  * AsynWebCrawler is the singleton class responsible to crawl 
   ```
   public static AyncWebCrawler instance(String domain){
 		if(instance == null) {
