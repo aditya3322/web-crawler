@@ -16,7 +16,9 @@ public class Console {
 		AyncWebCrawler crawler = AyncWebCrawler.instance(domain);
 		crawler.crawl(url, depth);
 		// Reponse in json form
+		System.out.println("-----------------------------------------------------------------------");
 		System.out.println(crawler.respone());
+		System.out.println("-----------------------------------------------------------------------");
 	}
 
 }

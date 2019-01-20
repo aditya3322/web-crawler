@@ -51,7 +51,6 @@ public class AyncWebCrawler {
 			return;
 		}
 		visited.add(startingUrl);
-		System.out.println(visited);
 		supplyAsync(content(startingUrl))
 				.thenApply(fetchUrls(domain))
 				.thenApply(doForEach(depth))
