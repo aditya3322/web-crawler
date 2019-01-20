@@ -98,12 +98,20 @@ public class AyncWebCrawler {
 		});
 	}
 	
+	private void reset() {
+		visited.clear();
+		status = Status.IDLE;
+	}
+	
 	public String respone() {
-		
 		if(status == Status.CRAWLING) 
 			return "Crawling is not completed";
-		ResponseVo reponse= new ResponseVo(domain,  visited.stream().collect(Collectors.toList()));
-		GsonBuilder builder = new GsonBuilder();
-		return builder.create().toJson(reponse);
+		try{
+			ResponseVo reponse= new ResponseVo(domain,  visited.stream().collect(Collectors.toList()));
+			GsonBuilder builder = new GsonBuilder();
+			return builder.create().toJson(reponse);
+		} finally {
+			reset();
+		}
 	}
 }

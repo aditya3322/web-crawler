@@ -4,19 +4,21 @@ import java.util.List;
 
 public class ResponseVo {
 	
-	private Domain domain;
+	private String domain;
+	private int count;
 	private List<String> urls;
 	
 	public ResponseVo(String domain, List<String> urls) {
-		this.domain = new Domain(domain);
+		this.domain = domain;
 		this.urls =  urls;
+		this.setCount(urls.size());
 	}
 	
-	public Domain getDomain() {
+	public String getDomain() {
 		return domain;
 	}
 	
-	public void setDomain(Domain domain) {
+	public void setDomain(String domain) {
 		this.domain = domain;
 	}
 	
@@ -28,20 +30,13 @@ public class ResponseVo {
 		this.urls = urls;
 	}
 
-	class Domain {
-		private String domain;
-
-		public Domain(String domain) {
-			this.domain = domain;
-		}
-		public String getDomain() {
-			return domain;
-		}
-
-		public void setDomain(String domain) {
-			this.domain = domain;
-		}
-		
-		
+	public int getCount() {
+		return count;
 	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	
 }
