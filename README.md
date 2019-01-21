@@ -20,7 +20,7 @@ Web crawler provide an async web crawling over a given URL. There are below inpu
 ## How to build & test
 
 * mvn clean compile build : used to build apis
-* mvn test : used to run Juint testcases over the AyncWebCrawler
+* mvn test : used to run testcases over the AyncWebCrawler
 
 
 ## Code Walkthrough
