@@ -28,8 +28,8 @@ public class AsyncWebCrawler {
 	private final ConcurrentLinkedQueue<String> visited = new ConcurrentLinkedQueue<>();
 	private static Status status = Status.IDLE;
 	private static AsyncWebCrawler instance;
+	private static long TIME_OUT = 30;
 	private AsyncWebCrawler() {
-		commonPool().awaitQuiescence(1000, TimeUnit.MINUTES);
 	}
 	
 	public static AsyncWebCrawler instance(){
@@ -50,6 +50,7 @@ public class AsyncWebCrawler {
 			return;
 		}
 		visited.add(startingUrl);
+		System.out.println("visited: " + startingUrl);
 		supplyAsync(content(startingUrl))
 				.thenApply(fetchUrls(domain, breath))
 				.thenApply(doForEach(depth, breath, domain))
@@ -83,6 +84,7 @@ public class AsyncWebCrawler {
 
 	private Function<Document, Set<String>> fetchUrls(String domain, int breath) {
 		return doc -> {
+			try {
 			return doc != null ? doc.select("a[href]").stream()
 					.map(link -> link.attr("abs:href"))
 					.filter(url -> url != null && url.contains(domain))
@@ -90,6 +92,10 @@ public class AsyncWebCrawler {
 					.limit(breath)
 					//.peek(System.out::println)
 					.collect(toSet()) : new HashSet<>();
+			}catch(Exception e) {
+				e.printStackTrace();
+				return new HashSet<>();
+			}
 		};
 	}
 
@@ -106,9 +112,7 @@ public class AsyncWebCrawler {
 	}
 	public ResponseVo respone(String domain) throws Exception {
 		if(status == Status.CRAWLING) {
-			reset();
-			commonPool().shutdown();
-			throw new Exception("crawler is in invalid state");
+			commonPool().awaitTermination(TIME_OUT, TimeUnit.MINUTES);
 		}
 		try{
 			return new ResponseVo(domain,  visited.stream().collect(Collectors.toList()));
