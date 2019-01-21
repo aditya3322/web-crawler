@@ -61,7 +61,7 @@ Web crawler provide an async web crawling over a given URL. There are below inpu
   ```
   ResponseVo responseVo = crawler.respone(domain);
   ```
-  * ResponseVo :
+  * response vo contains domain name, count of the unique urls searched and list of urls :
   ```
   public class ResponseVo {
 	
