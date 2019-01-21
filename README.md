@@ -25,7 +25,7 @@ Web crawler provide an async web crawling over a given URL. There are below inpu
 
 ## Code Walkthrough
 
-  * AsynWebCrawler is the singleton class responsible to crawl 
+  * AsyncWebCrawler is the singleton class responsible to crawl 
   ```
   public static AyncWebCrawler instance(String domain){
 		if(instance == null) {
