@@ -15,7 +15,7 @@ Web crawler provide an async web crawling over a given URL. There are below inpu
 * URL : URL on which web crawling going to done
 * domain : As page can have multiple other source urls so just serach to the given domain
 * depth : number of recursion with url
-* breath :  number of Urls with in the page
+* breath :  limit on number of Urls on the page
 
 ## How to build & test
 
