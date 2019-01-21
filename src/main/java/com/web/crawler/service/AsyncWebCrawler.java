@@ -104,9 +104,11 @@ public class AsyncWebCrawler {
 		visited.clear();
 		status = Status.IDLE;
 	}
-	public ResponseVo respone(String domain) {
+	public ResponseVo respone(String domain) throws Exception {
 		if(status == Status.CRAWLING) {
-			return new ResponseVo(domain,new ArrayList<>());
+			reset();
+			commonPool().shutdown();
+			throw new Exception("crawler is in invalid state");
 		}
 		try{
 			return new ResponseVo(domain,  visited.stream().collect(Collectors.toList()));

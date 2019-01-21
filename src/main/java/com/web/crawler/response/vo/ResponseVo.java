@@ -38,5 +38,11 @@ public class ResponseVo {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return "ResponseVo [domain=" + domain + ", count=" + count + ", urls=" + urls + "]";
+	}
+
+	
 	
 }
